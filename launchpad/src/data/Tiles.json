@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "code": "AST",
+    "title": "Assessment Templates"
+  },
+  {
+    "id": 2,
+    "code": "RCM",
+    "title": "RCM Assessment"
+  },
+  {
+    "id": 3,
+    "code": "FL",
+    "title": "Locations"
+  },
+  {
+    "id": 4,
+    "code": "EQU",
+    "title": "Equipment"
+  },
+  {
+    "id": 5,
+    "code": "MOD",
+    "title": "Models"
+  }
+]
