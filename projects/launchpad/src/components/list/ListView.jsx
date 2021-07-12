@@ -14,7 +14,6 @@ const ListView = props => {
     key: 2,
     text: "Delete"
   }];
-  console.log(props);
 
   return (
     <div style={launchpadStyle}>
