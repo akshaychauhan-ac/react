@@ -11,7 +11,7 @@ ReactDOM.render(
     <div>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route exact path="/users" component={ListView} />
+        <Route exact path="/:id" component={ListView} />
         <Route component={NotFound} />
       </Switch>
     </div>

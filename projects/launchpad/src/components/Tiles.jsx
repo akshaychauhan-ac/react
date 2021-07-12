@@ -19,8 +19,6 @@ const Tiles = () => {
 
   const handleRowClick = oEvent => {
     history.push(`/${oEvent.code}`);
-
-    console.log(oEvent);
   };
 
   return (

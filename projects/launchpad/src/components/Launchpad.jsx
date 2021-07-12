@@ -4,10 +4,11 @@ import Tiles from "./Tiles";
 
 const Launchpad = () => {
   const launchpadStyle = { backgroundColor: "#e6e9ea" };
+  const headerTitle = "Home";
 
   return (
     <div style={launchpadStyle}>
-      <Header title={"Home"}></Header>
+      <Header title={headerTitle}></Header>
       <Tiles></Tiles>
     </div>
   );
