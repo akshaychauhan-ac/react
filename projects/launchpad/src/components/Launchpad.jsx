@@ -7,7 +7,7 @@ const Launchpad = () => {
 
   return (
     <div style={launchpadStyle}>
-      <Header></Header>
+      <Header title={"Home"}></Header>
       <Tiles></Tiles>
     </div>
   );

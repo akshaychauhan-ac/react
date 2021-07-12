@@ -1,7 +1,7 @@
 import React from "react";
 import search from "../search.svg";
 
-const Header = () => {
+const Header = props => {
   const headerStyle = {
     height: "2.75rem",
     backgroundColor: "#354a5f",
@@ -28,7 +28,7 @@ const Header = () => {
             <a style={{ float: "left", margin: "0 1.35rem 0 0" }}>
               <img src="https://sapui5.hana.ondemand.com/1.71.19/resources/sap/ushell/themes/base/img/sap_55x27.png"></img>
             </a>
-            <h1 style={headerTitleStyle}>Home</h1>
+            <h1 style={headerTitleStyle}>{props.title}</h1>
           </div>
         </div>
         <div style={headerContentWidth}>
