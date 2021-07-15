@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header";
 import ListTable from "./ListTable";
-import TableToolbar from "./TableToolbar";
+import { Dialog } from '@ui5/webcomponents-react';
+import { Toolbar, Title, ToolbarSpacer, Button } from "@ui5/webcomponents-react";
 import tilesList from "../../data/Tiles";
 import axios from "axios";
 
@@ -13,7 +14,8 @@ const ListView = props => {
   const tableTitle = appDetails.title + " (" + users.length + ")";
   const toolbarButtons =  [{
     key: 1,
-    text: "Create"
+    text: "Create",
+    action: "createDialog"
   }, {
     key: 2,
     text: "Delete"
@@ -31,7 +33,11 @@ const ListView = props => {
   return (
     <div style={launchpadStyle}>
       <Header title={appDetails.title}></Header>
-      <TableToolbar title={tableTitle} buttons={toolbarButtons}></TableToolbar>
+      <Toolbar>
+        <Title level={"H3"} style={{marginLeft: "1rem"}}>{tableTitle}</Title>
+        <ToolbarSpacer />
+        {toolbarButtons.map(button => <Button key={button.key} design={"Transparent"}>{button.text}</Button>)}
+      </Toolbar>
       <ListTable data={users}></ListTable>
     </div>
   );
