@@ -4,7 +4,7 @@ import Launchpad from "./components/Launchpad";
 
 function App() {
   return (
-    <div className="App">
+    <div className={"App"}>
       <Launchpad></Launchpad>
     </div>
   );
