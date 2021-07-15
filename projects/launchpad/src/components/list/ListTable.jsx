@@ -43,16 +43,16 @@ const ListTable = props => {
           header={<Bar middleContent={<Title level={"H3"}>Create User</Title>}/>}
           footer={<Bar endContent={
             <FlexBox>
-              <Button design={"Emphasized"} onClick={handleSubmit}>Save</Button>
+              <Button style={{marginRight: "0.5rem"}} design={"Emphasized"} onClick={handleSubmit}>Save</Button>
               <Button design={"Transparent"} onClick={handleClose}>Close</Button>
             </FlexBox>
           } />}
         >
-          <FlexBox direction={"Column"}>
-            <Label>Name</Label>
-            <Input onInput={handleChangeName}></Input>
-            <Label>Username</Label>
-            <Input onInput={handleChangeUsername}></Input>
+          <FlexBox style={{marginLeft: "0.5rem", marginTop: "0.5rem"}} direction={"Column"}>
+            <Label style={{marginBottom: "0.5rem"}}>Name</Label>
+            <Input style={{marginBottom: "1rem"}} onInput={handleChangeName}></Input>
+            <Label style={{marginBottom: "0.5rem"}}>Username</Label>
+            <Input style={{marginBottom: "1rem"}} onInput={handleChangeUsername}></Input>
           </FlexBox>
         </Dialog>
       </Toolbar>
