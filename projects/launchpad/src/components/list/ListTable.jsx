@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Toolbar, Title, ToolbarSpacer, Button, Bar } from "@ui5/webcomponents-react";
-import { Label } from "@ui5/webcomponents-react";
+import { Label, Input, FlexBox } from "@ui5/webcomponents-react";
 import { Table, TableColumn, TableRow, TableCell, TableGrowingMode, Dialog } from "@ui5/webcomponents-react";
 
 const ListTable = props => {
@@ -10,6 +10,26 @@ const ListTable = props => {
   };
   const handleClose = () => {
       dialogRef.current.close();
+  };
+  const handleSubmit = e => {
+    console.log(createUserData);
+      dialogRef.current.close();
+  };
+  const [createUserData, setCreateUserData] = useState({
+    name: "",
+    username: ""
+  });
+  const handleChangeName = e => {
+    setCreateUserData(prevState => ({
+      ...prevState, 
+      name: e.target.value
+    }));
+  };
+  const handleChangeUsername = e => {
+    setCreateUserData(prevState => ({
+      ...prevState, 
+      username: e.target.value
+    }));
   };
 
   return (
@@ -22,8 +42,19 @@ const ListTable = props => {
         <Dialog
           ref={dialogRef}
           header={<Bar middleContent={<Title level={"H3"}>Create User</Title>}/>}
-          footer={<Bar endContent={<Button onClick={handleClose}>Close</Button>} />}
+          footer={<Bar endContent={
+            <FlexBox>
+              <Button design={"Emphasized"} onClick={handleSubmit}>Save</Button>
+              <Button design={"Transparent"} onClick={handleClose}>Close</Button>
+              </FlexBox>
+            } />}
         >
+          <FlexBox direction={"Column"}>
+            <Label>Name</Label>
+            <Input onInput={handleChangeName}></Input>
+            <Label>Username</Label>
+            <Input onInput={handleChangeUsername}></Input>
+          </FlexBox>
         </Dialog>
       </Toolbar>
       <Table growing={TableGrowingMode.Scroll} growingThreshold={"5"} mode={"MultiSelect"} columns={
