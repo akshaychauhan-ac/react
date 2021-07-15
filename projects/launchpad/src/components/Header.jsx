@@ -1,5 +1,5 @@
 import React from "react";
-import search from "../search.svg";
+import search from "../images/search.svg";
 
 const Header = props => {
   const headerStyle = {
