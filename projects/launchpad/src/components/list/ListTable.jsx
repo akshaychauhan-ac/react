@@ -21,7 +21,7 @@ const ListTable = props => {
   });
   const handleChangeName = e => {
     setCreateUserData(prevState => ({
-      ...prevState, 
+      ...prevState,
       name: e.target.value
     }));
   };
@@ -39,15 +39,14 @@ const ListTable = props => {
         <ToolbarSpacer />
         <Button key={"1"} design={"Transparent"} onClick={handleOpen}>{"Create"}</Button>
         <Button key={"2"} design={"Transparent"}>{"Delete"}</Button>
-        <Dialog
-          ref={dialogRef}
+        <Dialog ref={dialogRef}
           header={<Bar middleContent={<Title level={"H3"}>Create User</Title>}/>}
           footer={<Bar endContent={
             <FlexBox>
               <Button design={"Emphasized"} onClick={handleSubmit}>Save</Button>
               <Button design={"Transparent"} onClick={handleClose}>Close</Button>
-              </FlexBox>
-            } />}
+            </FlexBox>
+          } />}
         >
           <FlexBox direction={"Column"}>
             <Label>Name</Label>
