@@ -48,11 +48,11 @@ const ListTable = props => {
             </FlexBox>
           } />}
         >
-          <FlexBox style={{marginLeft: "0.5rem", marginTop: "0.5rem"}} direction={"Column"}>
+          <FlexBox style={{margin: "0.5rem 0.5rem 0 0.5rem"}} direction={"Column"}>
             <Label style={{marginBottom: "0.5rem"}}>Name</Label>
-            <Input style={{marginBottom: "1rem"}} onInput={handleChangeName}></Input>
+            <Input style={{marginBottom: "1rem", width: "100%"}} onInput={handleChangeName}></Input>
             <Label style={{marginBottom: "0.5rem"}}>Username</Label>
-            <Input style={{marginBottom: "1rem"}} onInput={handleChangeUsername}></Input>
+            <Input style={{marginBottom: "1rem", width: "100%"}} onInput={handleChangeUsername}></Input>
           </FlexBox>
         </Dialog>
       </Toolbar>
