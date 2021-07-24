@@ -27,7 +27,7 @@ const Header = () => {
       <Link to="/">
         <img src={logo} alt="store" className="navbar-brand" />
       </Link>
-      <ul className="navbar-nav align-items-center">
+      <ul className="navbar-nav align-items-center" style={{marginLeft: "0.5rem"}}>
         <li className="nav-item ml-5">
           <Link to="/" className="nav-link">
             products
