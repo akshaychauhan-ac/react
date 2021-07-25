@@ -13,8 +13,19 @@ const ProductProvider = props => {
   const [modalOpen, setModalOpen] = useState({});
 
   useEffect(() => {
-    setProducts(storeProducts);
+    setDefaultProducts();
   }, []);
+
+  const setDefaultProducts = () => {
+    let products = [];
+
+    storeProducts.forEach(item => {
+      const singleItem = { ...item };
+
+      products = [...products, singleItem];
+    });
+    setProducts(products);
+  };
 
   useEffect(() => {
     setDetailProduct(productDetails);
@@ -52,12 +63,58 @@ const ProductProvider = props => {
     setDetailProduct({...product});
   };
 
+  const increment = id => {
+    let tempCart = [...cart];
+    const selectedProduct = tempCart.find(item => {
+      return item.id === id;
+    });
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count + 1;
+    product.total = product.count * product.price;
+
+    setCart([...tempCart]);
+  };
+
+  const decrement = id => {
+    let tempCart = [...cart];
+    const selectedProduct = tempCart.find(item => {
+      return item.id === id;
+    });
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count - 1;
+    if (product.count === 0) {
+      removeItem(id);
+    } else {
+      product.total = product.count * product.price;
+      setCart([...tempCart]);
+    }
+  };
+
+  const removeItem = id => {
+    let tempProducts = [...products];
+    let tempCart = [...cart];
+    const index = tempProducts.indexOf(getItem(id));
+    let removedProduct = tempProducts[index];
+
+    removedProduct.inCart = false;
+    removedProduct.count = 0;
+    removedProduct.total = 0;
+
+    tempCart = tempCart.filter(item => item.id !== id);
+
+    setCart([...tempCart]);
+    setProducts([...tempProducts]);
+  };
+
   const getTotals = () => {
     let subTotal = 0;
     cart.map(item => (subTotal += item.total));
     const tempTax = subTotal * 0.1;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subTotal + tax;
+
     return {
       subTotal,
       tax,
@@ -74,11 +131,13 @@ const ProductProvider = props => {
   };
 
   useEffect(() => {
-    const callAddTotal = () => {
-      addTotals();
-    };
-    callAddTotal();
+    addTotals();
   }, [products, cart, detailProduct]);
+
+  const clearCart = () => {
+    setCart([]);
+    setDefaultProducts();
+  };
 
   const openModal = id => {
     const product = getItem(id);
@@ -104,6 +163,10 @@ const ProductProvider = props => {
         modalProduct,
         modalOpen,
         handleDetail,
+        increment,
+        decrement,
+        removeItem,
+        clearCart,
         openModal,
         closeModal
       }}
