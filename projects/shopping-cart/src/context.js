@@ -5,6 +5,8 @@ const ProductContext = React.createContext();
 const ProductProvider = props => {
   const [products, setProducts] = useState([]);
   const [detailProduct, setDetailProduct] = useState({});
+  const [modalProduct, setModalProduct] = useState({});
+  const [modalOpen, setModalOpen] = useState({});
 
   useEffect(() => {
     setProducts(storeProducts);
@@ -12,6 +14,14 @@ const ProductProvider = props => {
 
   useEffect(() => {
     setDetailProduct(productDetails);
+  }, []);
+
+  useEffect(() => {
+    setModalProduct(productDetails);
+  }, []);
+
+  useEffect(() => {
+    setModalOpen(false);
   }, []);
 
   const getItem = id => {
@@ -24,12 +34,27 @@ const ProductProvider = props => {
     setDetailProduct(product);
   };
 
+  const openModal = id => {
+    const product = getItem(id);
+
+    setModalProduct(product);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <ProductContext.Provider
       value={{
         products,
         detailProduct,
-        handleDetail
+        modalProduct,
+        modalOpen,
+        handleDetail,
+        openModal,
+        closeModal
       }}
     >
       {props.children}
