@@ -5,6 +5,10 @@ const ProductContext = React.createContext();
 const ProductProvider = props => {
   const [products, setProducts] = useState([]);
   const [detailProduct, setDetailProduct] = useState({});
+  const [cart, setCart] = useState([]);
+  const [cartSubTotal, setCartSubTotal] = useState(0);
+  const [cartTax, setCartTax] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
   const [modalProduct, setModalProduct] = useState({});
   const [modalOpen, setModalOpen] = useState({});
 
@@ -25,14 +29,56 @@ const ProductProvider = props => {
   }, []);
 
   const getItem = id => {
-    const product = products.find(item => item.id === id);
-    return product;
+    return products.find(item => item.id === id);
   };
 
   const handleDetail = id => {
     const product = getItem(id);
     setDetailProduct(product);
   };
+
+  const addToCart = id => {
+    let tempProducts = [...products];
+    const index = tempProducts.indexOf(getItem(id));
+    const product = tempProducts[index];
+    const price = product.price;
+
+    product.inCart = true;
+    product.count = 1;
+    product.total = price;
+
+    setProducts(tempProducts);
+    setCart([...cart, product]);
+    setDetailProduct({...product});
+  };
+
+  const getTotals = () => {
+    let subTotal = 0;
+    cart.map(item => (subTotal += item.total));
+    const tempTax = subTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
+    return {
+      subTotal,
+      tax,
+      total
+    };
+  };
+
+  const addTotals = () => {
+    const totals = getTotals();
+
+    setCartSubTotal(totals.subTotal);
+    setCartTax(totals.tax);
+    setCartTotal(totals.total);
+  };
+
+  useEffect(() => {
+    const callAddTotal = () => {
+      addTotals();
+    };
+    callAddTotal();
+  }, [products, cart, detailProduct]);
 
   const openModal = id => {
     const product = getItem(id);
@@ -50,6 +96,11 @@ const ProductProvider = props => {
       value={{
         products,
         detailProduct,
+        cart,
+        cartSubTotal,
+        cartTax,
+        cartTotal,
+        addToCart,
         modalProduct,
         modalOpen,
         handleDetail,

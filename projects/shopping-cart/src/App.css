@@ -7,11 +7,6 @@
   --mainYellow: #ffa400;
 }
 
-body {
-  font-family: "Oswald", sans-serif !important;
-  background: var(--mainWhite) !important;
-  color: var(--mainDark) !important;
-}
 .navbar {
   justify-content: flex-start !important;
   position: relative;
