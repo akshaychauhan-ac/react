@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "./Product";
 import Title from "./Title";
-import { storeProducts as products } from "../data";
+import { ProductConsumer } from "../context";
 import styled from "styled-components";
 import "./ProductList.css";
 
@@ -21,9 +21,13 @@ const ProductList = () => {
         <div className="container">
           <Title name="our" title="products" />
           <div className="row">
-            {
-              products.map(product => <Product key={product.id} product={product} />)
-            }
+            <ProductConsumer>
+              {value => {
+                return value.products.map(product => {
+                  return <Product key={product.id} product={product} />;
+                });
+              }}
+            </ProductConsumer>
           </div>
         </div>
       </ProductWrapper>

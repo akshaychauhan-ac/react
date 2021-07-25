@@ -1,57 +1,40 @@
-import React, { Component } from "react";
-import { storeProducts, detailProduct } from "./data";
+import React, { useState, useEffect } from "react";
+import { storeProducts, detailProduct as productDetails } from "./data";
 const ProductContext = React.createContext();
 
-class ProductProvider extends Component {
-  state = {
-    products: [],
-    detailProduct: detailProduct,
-    cart: [],
-    modalOpen: false,
-    modalProduct: detailProduct,
-    cartSubTotal: 0,
-    cartTax: 0,
-    cartTotal: 0
-  };
-  componentDidMount() {
-    this.setProducts();
-  }
+const ProductProvider = props => {
+  const [products, setProducts] = useState([]);
+  const [detailProduct, setDetailProduct] = useState({});
 
-  setProducts = () => {
-    let products = [];
-    storeProducts.forEach(item => {
-      const singleItem = { ...item };
-      products = [...products, singleItem];
-    });
-    this.setState(() => {
-      return { products };
-    }, this.checkCartItems);
-  };
+  useEffect(() => {
+    setProducts(storeProducts);
+  }, []);
 
-  getItem = id => {
-    const product = this.state.products.find(item => item.id === id);
+  useEffect(() => {
+    setDetailProduct(productDetails);
+  }, []);
+
+  const getItem = id => {
+    const product = products.find(item => item.id === id);
     return product;
   };
 
-  handleDetail = id => {
-    const product = this.getItem(id);
-    this.setState(() => {
-      return { detailProduct: product };
-    });
+  const handleDetail = id => {
+    const product = getItem(id);
+    setDetailProduct(product);
   };
 
-  render() {
-    return (
-      <ProductContext.Provider
-        value={{
-          ...this.state,
-          handleDetail: this.handleDetail
-        }}
-      >
-        {this.props.children}
-      </ProductContext.Provider>
-    );
-  }
+  return (
+    <ProductContext.Provider
+      value={{
+        products,
+        detailProduct,
+        handleDetail
+      }}
+    >
+      {props.children}
+    </ProductContext.Provider>
+  );
 }
 
 const ProductConsumer = ProductContext.Consumer;
