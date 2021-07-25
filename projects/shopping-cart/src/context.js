@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { storeProducts, detailProduct as productDetails } from "./data";
+
 const ProductContext = React.createContext();
 
 const ProductProvider = props => {
