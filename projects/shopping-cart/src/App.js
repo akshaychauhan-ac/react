@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import Details from "./components/Details";
+import Default from "./components/Default";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ProductList} />
         <Route path="/details" component={Details} />
+        <Route component={Default} />
       </Switch>
     </>
   );
