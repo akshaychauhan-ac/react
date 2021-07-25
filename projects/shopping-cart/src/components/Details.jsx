@@ -1,13 +1,22 @@
 import React, { Component } from "react";
 import { ProductConsumer } from "../context";
 import { ButtonContainer } from "./Button";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+const DetailsWrapper = styled.div`
+  @media (min-width: 768px) {
+    .col-md-6 {
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+  }
+`;
 
 const Details = props => {
   return (
     <ProductConsumer>
       {value => {
-        console.log(value.detailProduct);
         const {
           id,
           company,
@@ -19,7 +28,7 @@ const Details = props => {
         } = value.detailProduct;
 
         return (
-          <div className="container py-5">
+          <DetailsWrapper className="container py-5">
             {/* title */}
             <div className="row">
               <div className="col-10 mx-auto text-center text-slanted text-blue my-5">
@@ -65,7 +74,7 @@ const Details = props => {
                 </div>
               </div>
             </div>
-          </div>
+          </DetailsWrapper>
         );
       }}
     </ProductConsumer>

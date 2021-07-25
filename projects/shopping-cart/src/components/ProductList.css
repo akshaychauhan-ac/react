@@ -41,6 +41,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
  .container {
     max-width: 720px  !important;
   }
+}
+@media (min-width: 768px) and (max-width: 991px) {
   .col-md-6 {
     flex: 0 0 50% !important;
     max-width: 50% !important;
@@ -214,9 +216,31 @@ p {
     margin-right: .25rem!important;
 }
 
+.mt-5, .my-5 {
+    margin-top: 3rem!important;
+}
 
+.mb-5, .my-5 {
+    margin-bottom: 3rem!important;
+}
 
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
 
+.text-muted {
+    color: #6c757d!important;
+}
+
+.h4, h4 {
+    font-size: 1.5rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
 
 
 

@@ -13,6 +13,8 @@ const Bar = styled.header`
   @media (max-width: 576px) {
     .navbar-nav {
       flex-direction: row !important;
+    }
+  }
 `;
 const headerStyle = {
   backgroundColor: "#2a2a72",
