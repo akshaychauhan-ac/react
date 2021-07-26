@@ -1,6 +1,6 @@
-Context
+/************************************************** Context *****************************************************/
 
-Steps:
+Steps to use:
 
 1) Create context.js
 	const ProductContext = React.createContext();
