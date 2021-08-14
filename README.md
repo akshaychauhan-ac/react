@@ -1,6 +1,8 @@
 # React
 
-1) Redux
+1) useEffect hook
+2) Context API
+3) Redux
 <img width="400" alt="redux" src="https://github.com/akshaychauhan-ac/react/blob/master/images/redux.png">
 
 # React Projects
