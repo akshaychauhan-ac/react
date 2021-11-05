@@ -1,10 +1,10 @@
 # React
 
-0) Create react app steps
-1) useEffect hook
+1) Create react app steps
 2) Context API
-3) React router
-4) Redux
+3) useEffect hook
+4) React router
+5) Redux
 <img width="400" alt="redux" src="https://github.com/akshaychauhan-ac/react/blob/master/images/redux.png">
 
 # React Projects
