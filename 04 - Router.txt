@@ -1,46 +1,19 @@
-/************************************************** Context *****************************************************/
+/************************************************** Router *****************************************************/
 
-Steps to use:
+BrowserRouter
+    BrowserRouter is a router implementation that uses the HTML5 history API /(pushState, replaceState and the popstate event) to keep your UI in sync with the URL.
+    It is the parent component that is used to store all of the other components.
 
-1) Create context.js
-	const ProductContext = React.createContext();
+MemoryRouter
+    MemoryRouter keeps the history of your “URL” in memory (does not read or write to the address bar).
+    Useful in tests and non-browser environments like React Native.
 
-	const ProductProvider = props => {
-		return (
-	    <ProductContext.Provider
-	      value={{
-	        products
-	      }}
-	    >
-	      {props.children}
-	    </ProductContext.Provider>
-	  );
-	}
+HashRouter
+    HashRouter uses client-side hash routing.
+    It uses the hash portion of the URL (i.e. window.location.hash) to keep your UI in sync with the URL.
+    hashType - slash, noslash, hashbang
 
-	const ProductConsumer = ProductContext.Consumer;
-
-	export { ProductProvider, ProductConsumer };
-
-2) Wrap components in provider
-	import { ProductProvider } from "./context";
-
-	<ProductProvider>
-	    <Router>
-	    	<App />
-	    </Router>
-	  </ProductProvider>
-
-3) Include it in component
-	Wrap component/subcomponent in consumer
-	use/bind/pass value coming from consumer
-	call events through consumer itself
-
-	import { ProductConsumer } from "../context";
-
-	<ProductConsumer>
-      {value => {
-        return value.products.map(product => {
-          return <Product key={product.id} product={product} />;
-        });
-      }}
-    </ProductConsumer>
+Redirect
+    <Route exact path="/">
+        {loggedIn ? <Redirect to="/dashboard" /> : <PublicHomePage />}
+    </Route>
