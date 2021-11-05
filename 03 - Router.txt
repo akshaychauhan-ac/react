@@ -1,0 +1,46 @@
+/************************************************** Context *****************************************************/
+
+Steps to use:
+
+1) Create context.js
+	const ProductContext = React.createContext();
+
+	const ProductProvider = props => {
+		return (
+	    <ProductContext.Provider
+	      value={{
+	        products
+	      }}
+	    >
+	      {props.children}
+	    </ProductContext.Provider>
+	  );
+	}
+
+	const ProductConsumer = ProductContext.Consumer;
+
+	export { ProductProvider, ProductConsumer };
+
+2) Wrap components in provider
+	import { ProductProvider } from "./context";
+
+	<ProductProvider>
+	    <Router>
+	    	<App />
+	    </Router>
+	  </ProductProvider>
+
+3) Include it in component
+	Wrap component/subcomponent in consumer
+	use/bind/pass value coming from consumer
+	call events through consumer itself
+
+	import { ProductConsumer } from "../context";
+
+	<ProductConsumer>
+      {value => {
+        return value.products.map(product => {
+          return <Product key={product.id} product={product} />;
+        });
+      }}
+    </ProductConsumer>
