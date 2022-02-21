@@ -3,7 +3,7 @@ import { storeProducts, detailProduct as productDetails } from "./data";
 
 const ProductContext = React.createContext();
 
-const ProductProvider = props => {
+const ProductProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [detailProduct, setDetailProduct] = useState({});
   const [cart, setCart] = useState([]);
@@ -20,7 +20,7 @@ const ProductProvider = props => {
   const setDefaultProducts = () => {
     let products = [];
 
-    storeProducts.forEach(item => {
+    storeProducts.forEach((item) => {
       const singleItem = { ...item };
 
       products = [...products, singleItem];
@@ -40,16 +40,16 @@ const ProductProvider = props => {
     setModalOpen(false);
   }, []);
 
-  const getItem = id => {
-    return products.find(item => item.id === id);
+  const getItem = (id) => {
+    return products.find((item) => item.id === id);
   };
 
-  const handleDetail = id => {
+  const handleDetail = (id) => {
     const product = getItem(id);
     setDetailProduct(product);
   };
 
-  const addToCart = id => {
+  const addToCart = (id) => {
     let tempProducts = [...products];
     const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
@@ -61,12 +61,12 @@ const ProductProvider = props => {
 
     setProducts(tempProducts);
     setCart([...cart, product]);
-    setDetailProduct({...product});
+    setDetailProduct({ ...product });
   };
 
-  const increment = id => {
+  const increment = (id) => {
     let tempCart = [...cart];
-    const selectedProduct = tempCart.find(item => {
+    const selectedProduct = tempCart.find((item) => {
       return item.id === id;
     });
     const index = tempCart.indexOf(selectedProduct);
@@ -77,9 +77,9 @@ const ProductProvider = props => {
     setCart([...tempCart]);
   };
 
-  const decrement = id => {
+  const decrement = (id) => {
     let tempCart = [...cart];
-    const selectedProduct = tempCart.find(item => {
+    const selectedProduct = tempCart.find((item) => {
       return item.id === id;
     });
     const index = tempCart.indexOf(selectedProduct);
@@ -93,7 +93,7 @@ const ProductProvider = props => {
     }
   };
 
-  const removeItem = id => {
+  const removeItem = (id) => {
     let tempProducts = [...products];
     let tempCart = [...cart];
     const index = tempProducts.indexOf(getItem(id));
@@ -103,7 +103,7 @@ const ProductProvider = props => {
     removedProduct.count = 0;
     removedProduct.total = 0;
 
-    tempCart = tempCart.filter(item => item.id !== id);
+    tempCart = tempCart.filter((item) => item.id !== id);
 
     setCart([...tempCart]);
     setProducts([...tempProducts]);
@@ -111,7 +111,7 @@ const ProductProvider = props => {
 
   const getTotals = () => {
     let subTotal = 0;
-    cart.map(item => (subTotal += item.total));
+    cart.map((item) => (subTotal += item.total));
     const tempTax = subTotal * 0.1;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subTotal + tax;
@@ -119,7 +119,7 @@ const ProductProvider = props => {
     return {
       subTotal,
       tax,
-      total
+      total,
     };
   };
 
@@ -140,7 +140,7 @@ const ProductProvider = props => {
     setDefaultProducts();
   };
 
-  const openModal = id => {
+  const openModal = (id) => {
     const product = getItem(id);
 
     setModalProduct(product);
@@ -169,14 +169,14 @@ const ProductProvider = props => {
         removeItem,
         clearCart,
         openModal,
-        closeModal
+        closeModal,
       }}
     >
       {props.children}
     </ProductContext.Provider>
   );
-}
+};
 
 const ProductConsumer = ProductContext.Consumer;
 
-export { ProductProvider, ProductConsumer };
+export { ProductProvider, ProductConsumer, ProductContext };
