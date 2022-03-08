@@ -1,0 +1,27 @@
+/************************************************** Lifecycle methods *****************************************************/
+
+constructor
+	constructors are only used for two purposes:
+		Initializing local state by assigning an object to this.state
+		Binding event handler methods to an instance
+	If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor
+	You should not call setState() in a constructor
+
+componentDidMount
+	invoked immediately after a component is mounted (inserted into the tree)
+	if you need to load data or set up any subscriptions, use this method
+	may call setState() immediately in componentDidMount().
+		it will trigger an extra rendering, but it will happen before the browser updates the screen
+
+componentDidUpdate
+	invoked immediately after updating occurs
+	not called for the initial render
+	compare props and make calls
+
+componentWillUnmount
+	invoked immediately before a component is unmounted and destroyed
+	perform any necessary cleanup in this method, such as 
+		invalidating timers,
+		canceling network requests, or
+		cleaning up any subscriptions that were created in componentDidMount()
+
