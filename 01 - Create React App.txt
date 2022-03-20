@@ -1,107 +1,119 @@
 Create React App without create-react-app
 
 1) npm init
-	package.json
-		Holds information about the project
-		What kind of libraries are being used with versions
+    package.json
+        Holds information about the project
+        What kind of libraries are being used with versions
 
 2) npm i react react-dom
-	dependencies
+    dependencies
 
 3) npm i @babel/core @babel/preset-env @babel/preset-react babel-loader
-	babel to use JSX
-	preset-env - latest JS ES code and transpiles to older browser compatible code
-	preset-react - transpiles JSX code
-	babel-loader - connects babel to webpack
-	webpack - combines dependencies code
+    babel to use JSX
+    preset-env - latest JS ES code and transpiles to older browser compatible code
+    preset-react - transpiles JSX code
+    babel-loader - connects babel to webpack
+    webpack - combines dependencies code
 
 4) .babelrc
-	{
-		"presets": ["@babel/preset-env", "@babel/preset-react"]
-	}
+    {
+        "presets": ["@babel/preset-env", "@babel/preset-react"]
+    }
 
 5) npm i --save-dev webpack webpack-dev-server webpack-cli html-webpack-plugin
 
 6) webpack.config.js
-	const HtmlWebpackPlugin = require("html-webpack-plugin");
-	const path = require("path");
+    const HtmlWebpackPlugin = require("html-webpack-plugin");
+    const path = require("path");
 
-	module.exports = {
-	  entry: "./src/index.js",
-	  output: {
-	    filename: "bundle.[hash].js",
-	    path: path.resolve(__dirname, "dist"),
-	  },
-	  plugins: [
-	    new HtmlWebpackPlugin({
-	      template: "./src/index.html",
-	    }),
-	  ],
-	  resolve: {
-	    modules: [__dirname, "src", "node_modules"],
-	    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
-	  },
-	  module: {
-	    rules: [
-	      {
-	        test: /\.jsx?$/,
-	        exclude: /node_modules/,
-	        loader: require.resolve("babel-loader"),
-	      },
-	      {
-	        test: /\.css$/,
-	        use: ["style-loader", "css-loader"],
-	      },
-	      {
-	        test: /\.png|svg|jpg|gif$/,
-	        use: ["file-loader"],
-	      },
-	    ],
-	  },
-	};
+    module.exports = {
+      entry: "./src/index.js",
+      output: {
+        filename: "bundle.[hash].js",
+        path: path.resolve(__dirname, "dist"),
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: "./src/index.html",
+        }),
+      ],
+      resolve: {
+        modules: [__dirname, "src", "node_modules"],
+        extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+      },
+      module: {
+        rules: [
+          {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: require.resolve("babel-loader"),
+          },
+          {
+            test: /\.css$/,
+            use: ["style-loader", "css-loader"],
+          },
+          {
+            test: /\.png|svg|jpg|gif$/,
+            use: ["file-loader"],
+          },
+        ],
+      },
+    };
 
 7) src folder
 
 8) App.js
 
 9) index.js
-	import React from "react";
-	import ReactDOM from "react-dom";
-	import App from "./App";
+    import React from "react";
+    import ReactDOM from "react-dom";
+    import App from "./App";
 
-	ReactDOM.render(
-	    <App />,
-	  document.getElementById("root")
-	);
+    ReactDOM.render(
+        <App />,
+      document.getElementById("root")
+    );
 
 10) index.html
-	<html lang="en">
-	  <head>
-	    <meta charset="UTF-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	    <title>React</title>
-	  </head>
-	  <body>
-	    <div id="root"></div>
-	  </body>
-	</html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>React</title>
+      </head>
+      <body>
+        <div id="root"></div>
+      </body>
+    </html>
 
 11) add scripts in package
-	webpack -
-	"scripts": {
-		"start": "webpack-dev-server --hot --open",
-		"build": "webpack --config webpack.config.js --mode production"
-	}
-	create-react-app -
-	"scripts": {
-	    "start": "react-scripts start",
-	    "build": "react-scripts build",
-	    "test": "react-scripts test",
-	    "eject": "react-scripts eject"
-	  }
+    webpack -
+    "scripts": {
+        "start": "webpack-dev-server --hot --open",
+        "build": "webpack --config webpack.config.js --mode production"
+    }
+    create-react-app -
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      }
 
 12) npm i style-loader css-loader
-	import css
+    import css
 
 13) npm i --dev file-loader
 
+14) App.js
+    import React from "react";
+
+    function App () {
+        return (
+            <>
+                <Components></Components>
+            </>
+        );
+    }
+
+    export default App;
