@@ -1,0 +1,35 @@
+.dashboard {
+  margin: 40px 182px 74.5px 181px;
+}
+
+/* .flex>:first-child {
+font-weight: 400; 
+font-style: normal;
+font-size: 16px;;
+line-height: 24px;
+color:#7788A3;
+}
+.flex>:nth-child(2) {
+font-weight: 700; 
+font-style: normal;
+font-size: 16px;;
+line-height: 24px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+} */
+@media only screen and (max-width: 1024px) {
+  .dashboard {
+    margin: 40px 24px 12px 18px;
+  }
+  .popUp {
+    position: absolute;
+    margin: auto;
+    left: 20px;
+    top: 150px;
+    height: 400px;
+    width: 320px;
+    background-color: #fff;
+  }
+}
