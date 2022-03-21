@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
 import { locale } from "./localisation";
+
 import "./App.css";
 
 const App = () => {
