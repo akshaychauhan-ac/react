@@ -1,14 +1,14 @@
 import React, { useState, memo, Suspense } from "react";
 import PropTypes from "prop-types";
-import popUp from "../assets/Bitmap1.png";
-import file from "../assets/file.png";
-import calendar from "../assets/calendar.png";
-import stats from "../assets/statistics-report.png";
-import Price from "../assets/Price.png";
-import mancalamix from "../assets/mancalamix.png";
-import pubg from "../assets/pubg.png";
-import superjewels from "../assets/superjewels.png";
-import moleslayer from "../assets/moleslayer.png";
+import popUp from "../images/Bitmap1.png";
+import file from "../images/file.png";
+import calendar from "../images/calendar.png";
+import stats from "../images/statistics-report.png";
+import Price from "../images/Price.png";
+import mancalamix from "../images/mancalamix.png";
+import pubg from "../images/pubg.png";
+import superjewels from "../images/superjewels.png";
+import moleslayer from "../images/moleslayer.png";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./CampaignList.css";

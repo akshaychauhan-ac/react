@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import mancalamix from "../assets/mancalamix.png";
-import pubg from "../assets/pubg.png";
-import superjewels from "../assets/superjewels.png";
-import moleslayer from "../assets/moleslayer.png";
+import mancalamix from "../images/mancalamix.png";
+import pubg from "../images/pubg.png";
+import superjewels from "../images/superjewels.png";
+import moleslayer from "../images/moleslayer.png";
 
 import "./Popup.css";
 
