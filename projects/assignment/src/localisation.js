@@ -1,18 +1,18 @@
 import LocalizedStrings from "react-localization";
 
-let localeString = new LocalizedStrings({
+let locale = new LocalizedStrings({
   en: {
-    manage: "Manage Campaign",
-    live: "Live Campaign ",
-    upcoming: "Upcoming Campaign",
-    past: "Past Campaign",
+    manage: "Manage Campaigns",
+    live: "Live Campaigns",
+    upcoming: "Upcoming Campaigns",
+    past: "Past Campaigns",
     date: "Date",
     view: "View",
     actions: "Actions",
     campaign: "Campaign",
     viewPricing: "View Pricing",
     report: "Report",
-    schedule: "Schedule Campaign",
+    schedule: "Schedule Again",
     monthlyText: "1 Week-1 Month",
     halfYearlyText: "6 Months",
     yearlyText: "1 Year",
@@ -22,9 +22,9 @@ let localeString = new LocalizedStrings({
   },
   ge: {
     manage: "Kampagne verwalten",
-    live: "Live-Kampagne",
-    upcoming: "bevorstehende Kampagne",
-    past: "vergangene Kampagne",
+    live: "Live-Kampagnes",
+    upcoming: "bevorstehende Kampagnes",
+    past: "vergangene Kampagnes",
     date: "Datum",
     view: "Aussicht",
     actions: "Aktionen",
@@ -40,4 +40,4 @@ let localeString = new LocalizedStrings({
     noData: "Es existiert keine Kampagne",
   },
 });
-export { localeString };
+export { locale };

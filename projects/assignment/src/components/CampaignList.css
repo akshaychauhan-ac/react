@@ -2,23 +2,31 @@
   overflow-x: auto;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 table {
   border-radius: 10px;
   border: 1px solid #f1f1f4;
   border-collapse: collapse;
-  box-shadow: 0px, 2px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
+
 .data-row {
   border-bottom: 1px solid rgb(236, 236, 236);
 }
 
-td {
-  padding-left: 12px;
+.columnTitle {
+  text-align: left;
+  padding-left: 0.8rem;
 }
+
+.rowItemWrapper {
+  padding: 1rem 0.8rem;
+}
+
 td span img {
   margin-right: 8px;
 }
+
 .actionColumn {
   display: flex;
   flex-wrap: wrap;
@@ -27,22 +35,19 @@ td span img {
   top: -15px;
   color: #7788a3;
 }
+
 .date-popup {
   left: -25px !important;
 }
+
 .dark-text {
-  font-style: normal;
-  font-weight: normal;
   font-size: 16px;
-  line-height: 24px;
   color: #2b416c;
 }
 
 .campaignColumn {
-  padding: 0 20px;
   align-items: center;
   display: flex;
-  margin-top: 15px;
 }
 
 .emptyHeadline {
@@ -53,9 +58,9 @@ td span img {
   border-radius: 5px;
   background-color: #f1f1f4;
 }
+
 .rowCampaignName {
   font-size: 12px;
-  width: 80px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -73,26 +78,31 @@ td span img {
   color: #7788a3;
   font-family: Roboto;
   font-style: italic;
-  font-weight: normal;
   font-size: 14px;
   line-height: 24px;
 }
+
+.pricingButton {
+  position: relative;
+  top: -3px;
+  display: inline-block;
+}
+
 .viewColumn {
-  cursor: pointer;
   color: #7788a3;
   min-width: 150px;
 }
+
 #row0 {
   background-color: #f1f1f4;
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   height: 48px;
-  vertical-align: center;
   text-transform: uppercase;
   color: #556789;
   text-align: center;
 }
+
 .icon {
   height: 24px;
   width: 18.84px;
@@ -100,15 +110,20 @@ td span img {
   top: 3px;
   position: relative;
 }
+
+.equalHeightWidth {
+  width: 24px !important;
+}
+
 .adjust-text {
   margin-right: 20px;
+  cursor: pointer;
 }
-/* span{
-    margin-right: 20px;
-} */
+
 .rowCampaignNameWrapper {
   margin-left: 6px;
 }
+
 .rowCampaignIcon {
   height: 40px;
   width: 40px;
@@ -120,21 +135,24 @@ td span img {
   .table-container {
     margin-top: 12px;
   }
+  
   .rowCampaignName {
     font-size: 12px;
-    width: 80px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   #cell0-2 {
     min-width: 130px;
   }
+
   .adjust-text {
     top: -12px;
     position: relative;
     margin-right: 20px;
   }
+
   .icon {
     top: -7px;
     position: relative;
@@ -145,6 +163,7 @@ td span img {
   #cell0-0 {
     min-width: 120px;
   }
+  
   #cell0-2 {
     min-width: 130px;
   }

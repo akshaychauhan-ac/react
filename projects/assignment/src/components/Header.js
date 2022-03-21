@@ -1,12 +1,10 @@
 import React from "react";
-import "../css/header.css";
+import "./Header.css";
 import PropTypes from "prop-types";
 
 const Header = ({ setLanguage }) => {
   const handleLocaleChange = (e) => {
-    //prevent dfault behaviour of onchange
     e.preventDefault();
-    //updating language state to current selected
     setLanguage(e.target.value);
   };
   return (
@@ -23,8 +21,9 @@ const Header = ({ setLanguage }) => {
     </div>
   );
 };
-//using proptypes for props type safety(gets removed in production build)
+
 Header.propTypes = {
   setLanguage: PropTypes.func,
 };
+
 export default Header;

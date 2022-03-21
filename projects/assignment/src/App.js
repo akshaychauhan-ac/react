@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
-import { localeString } from "./config/localisation";
+import { locale } from "./localisation";
 import "./App.css";
 
 const App = () => {
   const [language, setLanguage] = useState("en");
 
-  localeString.setLanguage(language);
+  locale.setLanguage(language);
 
   return (
     <div className="container">
       <Header setLanguage={setLanguage} />
-      <Dashboard localeString={localeString} />
+      <Dashboard locale={locale} />
     </div>
   );
 };

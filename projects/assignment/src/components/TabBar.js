@@ -1,34 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "../css/tabContainer.css";
+import "./TabBar.css";
 
-const TabContainer = ({ activeTab, setActiveTab, localeString }) => {
+const TabBar = ({ activeTab, setActiveTab, locale }) => {
   return (
-    <div className="tabContainer">
+    <div className="tabBar">
       <div
         className={`tabItem ${activeTab === "upcoming" && "active"}`}
         onClick={() => setActiveTab("upcoming")}
       >
-        {localeString.upcoming}
+        {locale.upcoming}
       </div>
       <div
         className={`tabItem ${activeTab === "live" && "active"}`}
         onClick={() => setActiveTab("live")}
       >
-        {localeString.live}
+        {locale.live}
       </div>
       <div
         className={`tabItem ${activeTab === "past" && "active"}`}
         onClick={() => setActiveTab("past")}
       >
-        {localeString.past}
+        {locale.past}
       </div>
     </div>
   );
 };
-TabContainer.propTypes = {
+
+TabBar.propTypes = {
   activeTab: PropTypes.string,
   setActiveTab: PropTypes.func,
 };
-export default TabContainer;
+
+export default TabBar;

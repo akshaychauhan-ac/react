@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../css/popup.css";
+import "./Popup.css";
 
 import mancalamix from "../assets/mancalamix.png";
 import pubg from "../assets/pubg.png";
 import superjewels from "../assets/superjewels.png";
 import moleslayer from "../assets/moleslayer.png";
-//declaring popUp_ functional component
-const PopUp = ({ data, setModalOpen, locale }) => {
+
+const Popup = ({ data, setModalOpen, locale }) => {
   const {
     name,
     region,
@@ -16,30 +16,31 @@ const PopUp = ({ data, setModalOpen, locale }) => {
     yearlyPrice,
     popUpIcon,
   } = data;
-  let popUpImage;
+  let popupImage;
+
   switch (popUpIcon) {
     case "mancalamix":
-      popUpImage = mancalamix;
+      popupImage = mancalamix;
       break;
     case "pubg":
-      popUpImage = pubg;
+      popupImage = pubg;
       break;
     case "superjewels":
-      popUpImage = superjewels;
+      popupImage = superjewels;
       break;
     case "moleslayer":
-      popUpImage = moleslayer;
+      popupImage = moleslayer;
       break;
     default:
-      popUpImage = "";
+      popupImage = "";
       break;
   }
-  return (
-    <div className="popUp_Container">
-      <div className="popUp_Inner">
-        <div className="popUp_upper">
-          <img className="popUp_icon" src={popUpImage} />
 
+  return (
+    <div className="popupWrapper">
+      <div className="popup">
+        <div className="popupTop">
+          <img className="popUp_icon" src={popupImage} />
           <div className="popUp_headingcontainer">
             <div className="popUp_name">{name}</div>
             <div className="popUp_country">{region}</div>
@@ -72,9 +73,11 @@ const PopUp = ({ data, setModalOpen, locale }) => {
     </div>
   );
 };
+
 //using proptypes for props type safety(gets removed in production build)
-PopUp.propTypes = {
+Popup.propTypes = {
   setModalOpen: PropTypes.func,
   data: PropTypes.object,
 };
-export default PopUp;
+
+export default Popup;

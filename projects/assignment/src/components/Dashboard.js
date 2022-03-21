@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import TabContainer from "./TabContainer";
-import MainTable from "./MainTable";
-import { getJsonURL } from "../config/apiConfig";
+import TabBar from "./TabBar";
+import CampaignList from "./CampaignList";
+import { getJsonURL } from "../apiConfig";
 import { getRequest } from "../utils/apiCalls";
-import "../css/dashboard.css";
-const DashBoard = ({ localeString }) => {
+import "./Dashboard.css";
+
+const DashBoard = ({ locale }) => {
   //using state to store the active tab from upcoming/live/past
   let [activeTab, setActiveTab] = useState("upcoming");
   let [tableData, setData] = useState([]);
 
   //adding api call to fetch json data on mount
   useEffect(() => {
-    //checking if the data is available in localStorage
     if (localStorage.getItem("campaignData")) {
-      //parsing local storage data and setting it to state data
       setData(JSON.parse(localStorage.getItem("campaignData")));
     } else {
-      //fetching data from server
       getRequest(getJsonURL).then((res) => {
         setData(res.data.data);
-        //storing data into localstorage(web storage) for performance gain
         localStorage.setItem("campaignData", JSON.stringify(res.data.data));
       });
     }
-    //for clearing on unmount
     return () => {};
   }, []);
 
@@ -47,24 +43,26 @@ const DashBoard = ({ localeString }) => {
     }
   }
   return (
-    <div className="dashBoard">
-      <h1>{localeString.manage}</h1>
-      <TabContainer
+    <div className="dashboard">
+      <h1>{locale.manage}</h1>
+      <TabBar
         setActiveTab={setActiveTab}
         activeTab={activeTab}
-        localeString={localeString}
+        locale={locale}
       />
-      <MainTable
+      <CampaignList
         data={tabsData[activeTab]}
         tableData={tableData}
         activeTab={activeTab}
         setData={setData}
-        localeString={localeString}
+        locale={locale}
       />
     </div>
   );
 };
+
 DashBoard.propTypes = {
-  localeString: PropTypes.object,
+  locale: PropTypes.object,
 };
+
 export default DashBoard;
