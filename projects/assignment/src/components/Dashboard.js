@@ -2,46 +2,43 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import TabBar from "./TabBar";
 import CampaignList from "./CampaignList";
-import { getJsonURL } from "../apiConfig";
-import { getRequest } from "../utils/apiCalls";
+import { mockData as campaigns } from "../mockdata/mock";
 import "./Dashboard.css";
 
-const DashBoard = ({ locale }) => {
-  //using state to store the active tab from upcoming/live/past
+const Dashboard = ({ locale }) => {
   let [activeTab, setActiveTab] = useState("upcoming");
-  let [tableData, setData] = useState([]);
+  let [tableData, setTableData] = useState([]);
 
-  //adding api call to fetch json data on mount
   useEffect(() => {
     if (localStorage.getItem("campaignData")) {
-      setData(JSON.parse(localStorage.getItem("campaignData")));
+      setTableData(JSON.parse(localStorage.getItem("campaignData")));
     } else {
-      getRequest(getJsonURL).then((res) => {
-        setData(res.data.data);
-        localStorage.setItem("campaignData", JSON.stringify(res.data.data));
-      });
+      setTableData(campaigns.data);
+      localStorage.setItem("campaignData", JSON.stringify(campaigns.data));
     }
     return () => {};
   }, []);
 
-  let tabsData = {
+  let campaignData = {
     upcoming: [],
     past: [],
     live: [],
   };
-  //logic to create data on the basis of live/upcoming/past
+
+  // Filter campaign data based on tab selection (upcoming/live/past)
   for (let i = 0; i < tableData.length; i++) {
     const diffTime = new Date(tableData[i].createdOn) - new Date();
     const diffTimeAbs = Math.abs(diffTime);
     const diffDays = diffTimeAbs / (1000 * 60 * 60 * 24);
     if (diffDays > 1 && diffTime < 0) {
-      tabsData["past"].push(tableData[i]);
+      campaignData["past"].push(tableData[i]);
     } else if (diffDays > 0 && diffTime > 0) {
-      tabsData["upcoming"].push(tableData[i]);
+      campaignData["upcoming"].push(tableData[i]);
     } else {
-      tabsData["live"].push(tableData[i]);
+      campaignData["live"].push(tableData[i]);
     }
   }
+
   return (
     <div className="dashboard">
       <h1>{locale.manage}</h1>
@@ -51,18 +48,18 @@ const DashBoard = ({ locale }) => {
         locale={locale}
       />
       <CampaignList
-        data={tabsData[activeTab]}
+        data={campaignData[activeTab]}
         tableData={tableData}
         activeTab={activeTab}
-        setData={setData}
+        setTableData={setTableData}
         locale={locale}
       />
     </div>
   );
 };
 
-DashBoard.propTypes = {
+Dashboard.propTypes = {
   locale: PropTypes.object,
 };
 
-export default DashBoard;
+export default Dashboard;

@@ -19,7 +19,7 @@ import moleslayer from "../assets/moleslayer.png";
 const Popup = React.lazy(() => import("./Popup"));
 const DatePicker = React.lazy(() => import("react-datepicker"));
 
-const CampaignList = ({ data, setData, tableData, locale, activeTab }) => {
+const CampaignList = ({ data, setTableData, tableData, locale, activeTab }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [datePicker, setDatePicker] = useState({});
   const [popupData, setPopupData] = useState({});
@@ -38,7 +38,7 @@ const CampaignList = ({ data, setData, tableData, locale, activeTab }) => {
         return newRowData;
       }
     });
-    setData(newData);
+    setTableData(newData);
     setDatePicker({ ...datePicker, [rowdata.id]: false });
   };
   //function to handle popup view and data
@@ -174,7 +174,7 @@ const CampaignList = ({ data, setData, tableData, locale, activeTab }) => {
 
 CampaignList.propTypes = {
   data: PropTypes.array,
-  setData: PropTypes.func,
+  setTableData: PropTypes.func,
 };
 
 //memo is used to prevent unneccessary re-rendering of the component
