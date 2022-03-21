@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import TabBar from "./TabBar";
 import CampaignList from "./CampaignList";
 import { mockData as campaigns } from "../mock";
+
 import "./Dashboard.css";
 
 const Dashboard = ({ locale }) => {

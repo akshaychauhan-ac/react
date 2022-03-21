@@ -1,38 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Popup.css";
 
 import mancalamix from "../assets/mancalamix.png";
 import pubg from "../assets/pubg.png";
 import superjewels from "../assets/superjewels.png";
 import moleslayer from "../assets/moleslayer.png";
 
+import "./Popup.css";
+
 const Popup = ({ data, setModalOpen, locale }) => {
   const {
     name,
     region,
     monthlyPrice,
-    HalfYearlyPrice,
+    halfYearlyPrice,
     yearlyPrice,
     popUpIcon,
   } = data;
-  let popupImage;
+  let campaignImg;
 
   switch (popUpIcon) {
     case "mancalamix":
-      popupImage = mancalamix;
+      campaignImg = mancalamix;
       break;
     case "pubg":
-      popupImage = pubg;
+      campaignImg = pubg;
       break;
     case "superjewels":
-      popupImage = superjewels;
+      campaignImg = superjewels;
       break;
     case "moleslayer":
-      popupImage = moleslayer;
+      campaignImg = moleslayer;
       break;
     default:
-      popupImage = "";
+      campaignImg = "";
       break;
   }
 
@@ -40,31 +41,31 @@ const Popup = ({ data, setModalOpen, locale }) => {
     <div className="popupWrapper">
       <div className="popup">
         <div className="popupTop">
-          <img className="popUp_icon" src={popupImage} />
-          <div className="popUp_headingcontainer">
-            <div className="popUp_name">{name}</div>
-            <div className="popUp_country">{region}</div>
+          <img className="popupIcon" src={campaignImg} />
+          <div className="headingContainer">
+            <div>{name}</div>
+            <div>{region}</div>
           </div>
         </div>
-        <div className="popUp_priceHeading">{locale.pricing}</div>
-        <div className="popUp_pricing">
-          <div className="popUp_pricingRow">
-            <div className="popUp_priceText">{locale.monthlyText}</div>
-            <div className="popUp_pricingvalue">$ {monthlyPrice}</div>
+        <div className="priceHeading">{locale.pricing}</div>
+        <div>
+          <div className="priceRow">
+            <div className="priceText">{locale.monthlyText}</div>
+            <div>$ {monthlyPrice}</div>
           </div>
-          <div className="popUp_pricingRow">
-            <div className="popUp_priceText">{locale.halfYearlyText}</div>
-            <div className="popUp_pricingvalue">$ {HalfYearlyPrice}</div>
+          <div className="priceRow">
+            <div className="priceText">{locale.halfYearlyText}</div>
+            <div>$ {halfYearlyPrice}</div>
           </div>
-          <div className="popUp_pricingRow">
-            <div className="popUp_priceText">{locale.yearlyText}</div>
-            <div className="popUp_pricingvalue">$ {yearlyPrice}</div>
+          <div className="priceRow">
+            <div className="priceText">{locale.yearlyText}</div>
+            <div>$ {yearlyPrice}</div>
           </div>
         </div>
-        <div className="popUp_button">
+        <div className="buttonWrapper">
           <div
             onClick={() => setModalOpen(false)}
-            className="popUp_closebutton"
+            className="closeButton"
           >
             {locale.close}
           </div>
@@ -74,7 +75,6 @@ const Popup = ({ data, setModalOpen, locale }) => {
   );
 };
 
-//using proptypes for props type safety(gets removed in production build)
 Popup.propTypes = {
   setModalOpen: PropTypes.func,
   data: PropTypes.object,

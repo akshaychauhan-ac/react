@@ -1,13 +1,17 @@
 import React from "react";
-import "./Header.css";
 import PropTypes from "prop-types";
+
 import logo from "../assets/logo.png";
 
+import "./Header.css";
+
 const Header = ({ setLanguage }) => {
+  // Set language based on dropdown selection
   const handleLocaleChange = (e) => {
     e.preventDefault();
     setLanguage(e.target.value);
   };
+
   return (
     <div className="header">
       <img src={logo} />
