@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import PropTypes from "prop-types";
+import logo from "../assets/logo.png";
 
 const Header = ({ setLanguage }) => {
   const handleLocaleChange = (e) => {
@@ -9,7 +10,7 @@ const Header = ({ setLanguage }) => {
   };
   return (
     <div className="header">
-      <img src="" />
+      <img src={logo} />
       <select
         onChange={handleLocaleChange}
         className="localSelector"
