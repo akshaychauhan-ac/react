@@ -21,7 +21,7 @@ let locale = new LocalizedStrings({
     noData: "No Campaign Exist",
   },
   ge: {
-    manage: "Kampagne verwalten",
+    manage: "Kampagne verwaltens",
     live: "Live-Kampagnes",
     upcoming: "bevorstehende Kampagnes",
     past: "vergangene Kampagnes",

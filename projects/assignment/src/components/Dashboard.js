@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import TabBar from "./TabBar";
 import CampaignList from "./CampaignList";
-import { mockData as campaigns } from "../mockdata/mock";
+import { mockData as campaigns } from "../mock";
 import "./Dashboard.css";
 
 const Dashboard = ({ locale }) => {
@@ -30,6 +30,7 @@ const Dashboard = ({ locale }) => {
     const diffTime = new Date(tableData[i].createdOn) - new Date();
     const diffTimeAbs = Math.abs(diffTime);
     const diffDays = diffTimeAbs / (1000 * 60 * 60 * 24);
+
     if (diffDays > 1 && diffTime < 0) {
       campaignData["past"].push(tableData[i]);
     } else if (diffDays > 0 && diffTime > 0) {
