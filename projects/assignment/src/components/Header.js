@@ -17,7 +17,7 @@ const Header = ({ setLanguage }) => {
       <img src={logo} />
       <select
         onChange={handleLocaleChange}
-        className="localSelector"
+        className="localeSelect"
         placeholder="Select Language"
       >
         <option value="en">English</option>

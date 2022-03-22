@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
-import Dashboard from "./components/Dashboard";
+import Campaign from "./components/Campaign";
 import { locale } from "./localisation";
-
-import "./App.css";
 
 const App = () => {
   const [language, setLanguage] = useState("en");
@@ -11,10 +9,10 @@ const App = () => {
   locale.setLanguage(language);
 
   return (
-    <div className="container">
+    <>
       <Header setLanguage={setLanguage} />
-      <Dashboard locale={locale} />
-    </div>
+      <Campaign locale={locale} />
+    </>
   );
 };
 

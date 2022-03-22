@@ -1,10 +1,10 @@
 import React, { useState, memo, Suspense } from "react";
 import PropTypes from "prop-types";
-import popUp from "../images/Bitmap1.png";
+
 import file from "../images/file.png";
 import calendar from "../images/calendar.png";
 import stats from "../images/statistics-report.png";
-import Price from "../images/Price.png";
+import price from "../images/price.png";
 import mancalamix from "../images/mancalamix.png";
 import pubg from "../images/pubg.png";
 import superjewels from "../images/superjewels.png";
@@ -13,7 +13,7 @@ import moleslayer from "../images/moleslayer.png";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CampaignList.css";
 
-// React lazy to dynamically load component (for page performance/reduce TTFB)
+// React lazy to dynamically load component for better performance
 const Popup = React.lazy(() => import("./Popup"));
 const DatePicker = React.lazy(() => import("react-datepicker"));
 
@@ -38,7 +38,7 @@ const CampaignList = ({ data, setTableData, tableData, locale, activeTab }) => {
     setDatePicker({ ...datePicker, [rowdata.id]: false });
   };
 
-  // Handle popup
+  // Handle pricing popup
   const handlePricingView = (rowdata) => {
     setPopupData(rowdata);
     setModalOpen(true);
@@ -97,7 +97,7 @@ const CampaignList = ({ data, setTableData, tableData, locale, activeTab }) => {
         <td className="viewColumn">
           <div className="rowItemWrapper">
             <div style={{height: "2.5rem"}}>
-              <img className="icon equalHeightWidth" src={Price} />
+              <img className="icon equalHeightWidth" src={price} />
               <span className="adjust-text pricingButton" onClick={() => handlePricingView(rowdata)}>{locale.viewPricing}</span>
             </div>
           </div>

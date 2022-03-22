@@ -85,3 +85,15 @@
   padding: 10px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1024px) {
+  .popup {
+    position: absolute;
+    margin: auto;
+    left: 20px;
+    top: 150px;
+    height: 400px;
+    width: 320px;
+    background-color: #fff;
+  }
+}

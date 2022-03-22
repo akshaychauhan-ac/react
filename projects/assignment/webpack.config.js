@@ -2,6 +2,11 @@ const HTMLWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   module: {
     rules: [
       {
@@ -32,10 +37,5 @@ module.exports = {
   devServer: {
     port: 3000,
     historyApiFallback: true,
-  },
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000
   }
 };
