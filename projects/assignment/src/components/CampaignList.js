@@ -1,14 +1,14 @@
 import React, { useState, memo, Suspense } from "react";
 import PropTypes from "prop-types";
 
-import file from "../images/file.png";
-import calendar from "../images/calendar.png";
-import stats from "../images/statistics-report.png";
-import price from "../images/price.png";
-import mancalamix from "../images/mancalamix.png";
-import pubg from "../images/pubg.png";
-import superjewels from "../images/superjewels.png";
-import moleslayer from "../images/moleslayer.png";
+import file from "../../public/images/file.png";
+import calendar from "../../public/images/calendar.png";
+import stats from "../../public/images/statistics-report.png";
+import price from "../../public/images/price.png";
+import mancalamix from "../../public/images/mancalamix.png";
+import pubg from "../../public/images/pubg.png";
+import superjewels from "../../public/images/superjewels.png";
+import moleslayer from "../../public/images/moleslayer.png";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./CampaignList.css";
@@ -86,7 +86,7 @@ const CampaignList = ({ data, setTableData, tableData, locale, activeTab }) => {
           </div>
         </td>
         <td className="campaignColumn">
-          <div className="rowItemWrapper" style={{display: "flex"}}>
+          <div className="rowItemWrapper" style={{ display: "flex" }}>
             <img className="rowCampaignIcon" src={campaignImg} />
             <div className="rowCampaignNameWrapper">
               <div className="rowCampaignName">{rowdata.name}</div>
@@ -96,23 +96,28 @@ const CampaignList = ({ data, setTableData, tableData, locale, activeTab }) => {
         </td>
         <td className="viewColumn">
           <div className="rowItemWrapper">
-            <div style={{height: "2.5rem"}}>
+            <div style={{ height: "2.5rem" }}>
               <img className="icon equalHeightWidth" src={price} />
-              <span className="adjust-text pricingButton" onClick={() => handlePricingView(rowdata)}>{locale.viewPricing}</span>
+              <span
+                className="adjust-text pricingButton"
+                onClick={() => handlePricingView(rowdata)}
+              >
+                {locale.viewPricing}
+              </span>
             </div>
           </div>
         </td>
         <td className="actionColumn">
-          <div className="rowItemWrapper" style={{display: "flex"}}>
-            <div style={{height: "2.5rem", marginRight: "1rem"}}>
+          <div className="rowItemWrapper" style={{ display: "flex" }}>
+            <div style={{ height: "2.5rem", marginRight: "1rem" }}>
               <img className="icon" src={file} />
               <span className="adjust-text"> CSV</span>
             </div>
-            <div style={{height: "2.5rem", marginRight: "1rem"}}>
+            <div style={{ height: "2.5rem", marginRight: "1rem" }}>
               <img className="icon" src={stats} />
               <span className="adjust-text">{locale.report}</span>
             </div>
-            <div className="cursor" style={{height: "2.5rem"}}>
+            <div className="cursor" style={{ height: "2.5rem" }}>
               <img
                 onClick={() => toggleDatePicker(rowdata.id)}
                 className="icon equalHeightWidth"
@@ -143,9 +148,15 @@ const CampaignList = ({ data, setTableData, tableData, locale, activeTab }) => {
         <table id="main-table">
           <tbody>
             <tr id="row0">
-              <td id="cell0-0" className="columnTitle">{locale.date}</td>
-              <td id="cell0-1" className="columnTitle">{locale.campaign}</td>
-              <td id="cell0-2" className="columnTitle">{locale.view}</td>
+              <td id="cell0-0" className="columnTitle">
+                {locale.date}
+              </td>
+              <td id="cell0-1" className="columnTitle">
+                {locale.campaign}
+              </td>
+              <td id="cell0-2" className="columnTitle">
+                {locale.view}
+              </td>
               <td id="cell0-3" className="columnTitle" style={{ width: "40%" }}>
                 {locale.actions}
               </td>

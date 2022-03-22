@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import mancalamix from "../images/mancalamix.png";
-import pubg from "../images/pubg.png";
-import superjewels from "../images/superjewels.png";
-import moleslayer from "../images/moleslayer.png";
+import mancalamix from "../../public/images/mancalamix.png";
+import pubg from "../../public/images/pubg.png";
+import superjewels from "../../public/images/superjewels.png";
+import moleslayer from "../../public/images/moleslayer.png";
 
 import "./Popup.css";
 
@@ -63,10 +63,7 @@ const Popup = ({ data, setModalOpen, locale }) => {
           </div>
         </div>
         <div className="buttonWrapper">
-          <div
-            onClick={() => setModalOpen(false)}
-            className="closeButton"
-          >
+          <div onClick={() => setModalOpen(false)} className="closeButton">
             {locale.close}
           </div>
         </div>

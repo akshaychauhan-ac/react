@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import logo from "../images/logo.png";
+import logo from "../../public/images/logo.png";
 
 import "./Header.css";
 
