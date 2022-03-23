@@ -1,0 +1,30 @@
+Hooks
+
+https://www.youtube.com/watch?v=LlvBzyy-558
+
+1) useState -
+    It lets you add React state to function components
+2) useEffect –
+    Single hook to take care of componentDidMount, componentDidUpdate & componentWillUnmount.
+    Runs both after the first render and after every update
+3) useReducer -
+    To help separate the concerns (rendering and state management) React provides the hook useReducer().
+    The hook does so by extracting the state management out of the component.
+4) useRef -
+    When we need DOM access of any element or it's value. We can also manipulate the value.
+5) useContext -
+    createContext (Context API)
+6) useCallback -
+    Pass an inline callback and an array of dependencies.
+    useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed.
+    This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.
+7) useMemo -
+    It will only recompute the memoized value when one of the dependencies has changed.
+    This optimization helps to avoid expensive calculations on every render.
+h.  React.memo()  -
+    It does a shallow comparison. It works good with strings and numbers.
+    Doesn’t works when passed in objects or functions (useCallback/useMemo helps).
+    It will compare all props passed to the component by referential equality.
+    If these props are unchanged, React.memo will reuse the last rendered result, therefore, it prevents the component from being re-rendered.
+    
+    Link - https://youtu.be/o-alRbk_zP0
