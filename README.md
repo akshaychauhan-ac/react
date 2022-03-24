@@ -6,6 +6,7 @@
 	4) React router
 	5) Lifecycle methods
 	6) Redux
+	7) Code splitting (React.lazy, Suspense, ErrorBoundary)
 <img width="400" alt="redux" src="https://github.com/akshaychauhan-ac/react/blob/master/images/redux.png">
 
 # React Projects
