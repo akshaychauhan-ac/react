@@ -18,9 +18,15 @@ https://www.youtube.com/watch?v=LlvBzyy-558
     Pass an inline callback and an array of dependencies.
     useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed.
     This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.
+    useCallback is used to cache functions.
+    useCallback on the other hand will not call the function passed to it and instead will return a new version of the function passed to it whenever the dependencies change.
+    Memory overhead so should not be used everywhere.
+    Referential equality - if reference is same, can be added in useMemo to avoid rerendering.
 7) useMemo -
     It will only recompute the memoized value when one of the dependencies has changed.
     This optimization helps to avoid expensive calculations on every render.
+    useMemo is used to cache values.
+    useMemo will call the function passed to it whenever its dependencies change and will return the value of that function call.
 h.  React.memo()  -
     It does a shallow comparison. It works good with strings and numbers.
     Doesn’t works when passed in objects or functions (useCallback/useMemo helps).
