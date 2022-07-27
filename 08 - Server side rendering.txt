@@ -1,0 +1,28 @@
+SSR
+a process where the server converts the web pages into viewable format before sending them to the browser.
+
+ADVANTAGES
+* Fast initial loading of the web page since ready to display HTML is provided to the browser.
+* Great user experience even if the user has a bad connection, outdated device or JavaScript disabled in the browser because all the basic content is ready to be rendered.
+* The content of the web page is indexed quicker resulting in better SEO ranking.
+
+DISADVANTAGES
+* SSR needs more resources and can be expensive since all the processing is done on the server.
+* For complex applications, the high number of server requests can slow down the site.
+
+Performance
+1. TFB (Time to First Byte) – the amount of time between a link clicked and the first bit of content is received.
+2. FCP (First Contentful Paint) – the moment when some requested content is rendered.
+3. TTI (Time To Interactive) – the time when the page becomes interactive.
+
+renderToString()
+
+Render a React element to its initial HTML.
+React will return an HTML string.
+You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.
+
+hydrate()
+
+Same as render(), but is used to hydrate a container whose HTML contents were rendered by ReactDOMServer.
+React will attempt to attach event listeners to the existing markup.
+
