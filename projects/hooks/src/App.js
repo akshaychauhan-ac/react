@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import UseState from './components/UseState';
+import UseEffect from './components/UseEffect';
 import './App.css';
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
       <div className="container">
         <h1>useState hook</h1>
         <UseState></UseState>
+        <h1>useEffect hook</h1>
+        <UseEffect></UseEffect>
       </div>
     </div>
   );
