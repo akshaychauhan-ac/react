@@ -3,7 +3,7 @@ Hooks
 https://www.youtube.com/watch?v=LlvBzyy-558
 
 1) useState -
-    It lets you add React state to function components
+    It lets you add React state to functional components
 2) useEffect –
     Single hook to take care of componentDidMount, componentDidUpdate & componentWillUnmount.
     Runs both after the first render and after every update
