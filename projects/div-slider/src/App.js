@@ -3,9 +3,6 @@ import { useEffect } from "react";
 import "./App.css";
 
 function App() {
-  // div1.innerText = div1.offsetWidth + " px";
-  // div3.innerText = div3.offsetWidth + " px";
-
   useEffect(() => {
     let div1 = document.getElementById("div1");
     let div3 = document.getElementById("div2");
@@ -20,7 +17,6 @@ function App() {
       div1.innerText = div1.offsetWidth;
       div3.innerText = div3.offsetWidth;
     };
-
     const div3Event = function (e) {
       const div1Width = div1.offsetWidth;
       const div3Width = div3.offsetWidth;
@@ -30,6 +26,7 @@ function App() {
       div1.innerText = div1.offsetWidth;
       div3.innerText = div3.offsetWidth;
     };
+
     document.getElementById("slider").addEventListener("mousedown", (e) => {
       div1.addEventListener("mousemove", div1Event);
       div3.addEventListener("mousemove", div3Event);
