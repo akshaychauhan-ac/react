@@ -20,6 +20,8 @@ This is the place where all the configurations will take place.
     webpack-dev-server - This server automatically reruns webpack when files are changed
     webpack-cli - Allows running webpack from the command line
 
+    https://webpack.js.org/concepts/hot-module-replacement/
+
 4) npm i --save-dev @babel/core @babel/preset-env @babel/preset-react babel-loader
     babel to use JSX
     core - Babel compiler core
