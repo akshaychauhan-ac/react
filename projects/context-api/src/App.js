@@ -1,5 +1,6 @@
 import "./App.css";
 import { useContext } from "react";
+import Comp from "./Comp";
 import Context from "./context";
 
 function App() {
@@ -7,9 +8,16 @@ function App() {
   return (
     <div
       className="App"
-      style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: "20px",
+      }}
     >
-      <div style={{ width: "100px", display: "flex" }}>
+      <div style={{ width: "100px", display: "flex", marginBottom: "20px" }}>
         <button
           style={{ marginRight: "20px" }}
           onClick={() => {
@@ -28,6 +36,7 @@ function App() {
           +
         </button>
       </div>
+      <Comp></Comp>
     </div>
   );
 }
