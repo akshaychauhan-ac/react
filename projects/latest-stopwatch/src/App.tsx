@@ -4,10 +4,8 @@ import "./App.css";
 function App() {
   const [time, setTime] = useState(0);
   const [start, setStart] = useState(false);
-
   useEffect(() => {
-    let timeout;
-
+    let timeout: any;
     if (start) {
       timeout = setInterval(() => {
         setTime((prev) => prev + 1);
@@ -17,7 +15,6 @@ function App() {
       clearTimeout(timeout);
     }
   }, [start]);
-
   return (
     <div style={{ width: "100%" }}>
       <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
@@ -42,5 +39,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
