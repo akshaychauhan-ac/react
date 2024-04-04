@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-interface CounterState {
+type CounterState = {
   value: number;
 }
 
