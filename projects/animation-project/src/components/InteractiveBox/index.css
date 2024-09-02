@@ -1,0 +1,24 @@
+.interactiveContainer {
+  width: auto;
+  position: relative;
+  margin: 25px 0;
+}
+
+.interactive {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: red;
+  animation: mymove 5s forwards;
+}
+
+@keyframes mymove {
+  0% {
+    left: 0;
+    background: red;
+  }
+  100% {
+    left: calc(100% - 100px);
+    background: yellow;
+  }
+}

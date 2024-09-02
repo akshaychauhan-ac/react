@@ -1,0 +1,27 @@
+.advancedContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.advancedImageSet {
+  height: 200px;
+  width: 200px;
+  border: 1px solid;
+}
+
+.imageSet {
+  animation: fadeinout 4s infinite;
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
