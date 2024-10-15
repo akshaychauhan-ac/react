@@ -44,3 +44,12 @@ Steps to use:
         });
       }}
     </ProductConsumer>
+
+Makes the component independent
+Solves prop drilling issue
+
+Steps
+	Create context using createContext()
+	Create a component with Context.Provider and add props.children inside
+	Import Provider & wrap the App component under Provider
+Use the hook - useContext(Context) to get the value of the context state
