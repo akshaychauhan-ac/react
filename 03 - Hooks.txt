@@ -4,9 +4,22 @@ https://www.youtube.com/watch?v=LlvBzyy-558
 
 1) useState -
     It lets you add React state to functional components
+    const [count, setCount] = useState(initialValue|function)
+	setCount(count + 1)
+	setCount(count + 1) // This will only update once
+	setCount(count => count + 1)
+	setCount(count => count + 1) // This will update twice
+	
+Add initializer method instead of method call so it runs only once
 2) useEffect –
     Single hook to take care of componentDidMount, componentDidUpdate & componentWillUnmount.
     Runs both after the first render and after every update
+    First outside return is called (mounting).
+	Then useEffect method is called after mounting.
+	
+	Empty dependency array - componentDidMount
+	Without dependency array - componentDidUpdate
+Clean up return function - componentWillUnmount
 3) useReducer -
     To help separate the concerns (rendering and state management) React provides the hook useReducer().
     The hook does so by extracting the state management out of the component.
