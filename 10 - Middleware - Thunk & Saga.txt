@@ -1,0 +1,23 @@
+Middleware
+	It is particularly useful for making API calls and performing other async tasks.
+	
+	export const getTasks = createAsyncThunk("task/get", async () => {
+	  const resp = await fetch("https://66d6b474006bfbe2e64e413f.mockapi.io/tasks");
+	  const data = await resp.json();
+	  return data;
+	});
+	
+Thunk vs Saga
+
+	Thunk
+		Use Thunk if you’re building a smaller application, need quick setup, or are handling straightforward asynchronous actions.
+		Thunk is simpler and easier to understand, making it a good choice for smaller projects or teams new to asynchronous programming.
+		Less setup
+		import { createStore, applyMiddleware } from 'redux'; import thunk from 'redux-thunk'; const store = createStore(reducer, applyMiddleware(thunk));
+		import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+	Saga
+		Use Saga if you’re working on a larger application with complex side effects, require advanced control flow, or prefer a more structured approach to managing asynchronous operations.
+		Saga uses generator functions, which provide a more powerful and flexible way to handle complex asynchronous flows, including cancellations, retries, and parallel tasks.
+		More setup
+	
