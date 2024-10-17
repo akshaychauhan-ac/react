@@ -16,4 +16,7 @@ Redux vs Zustand vs MobX
 		More structure, suited for maintainability, scalability, complex
 	Zustand
 		No Provider - No global store needed
-    Minimalistic code
+    		Minimalistic code
+	MobX
+		3 core concepts: State, Actions & Derivations
+		Based on Observer pattern, components observe the store.
