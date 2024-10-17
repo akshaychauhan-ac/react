@@ -1,1 +1,19 @@
-
+Redux vs Zustand vs MobX
+	Redux requires your app to be wrapped in context providers; Zustand does not.
+	import { redux } from 'zustand/middleware'
+	const useReduxStore = create(redux(reducer, initialState))
+	"hydrate" the static markup into a fully interactive app on the client
+	The Immer middleware enables you to use immutable state in a more convenient way. Also, with Immer, you can simplify handling immutable data structures in Zustand.
+	
+	• Use Redux when working on large-scale projects where predictability, maintainability, and scalability are critical. Its structured approach is beneficial for teams needing a robust framework for managing complex state.
+	• Use MobX for projects where you need a more straightforward and less boilerplate-heavy approach. It's suitable for applications with complex state changes but where the scale does not justify the overhead of Redux.
+	• Use Zustand for smaller projects or when development speed and simplicity are priorities. It's ideal for cases where a lightweight state management solution is sufficient.
+	
+	
+	Redux/Toolkit
+		Lot of boilerplate code, imports
+		Provider
+		More structure, suited for maintainability, scalability, complex
+	Zustand
+		No Provider - No global store needed
+    Minimalistic code
